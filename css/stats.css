@@ -1,0 +1,119 @@
+body {
+	font-size: 16px;
+}
+
+#gradient-body {
+	background: rgba(77,5,5,1);
+	background: -moz-linear-gradient(left, rgba(77,5,5,1) 0%, rgba(224,204,209,1) 46%, rgba(224,204,209,1) 57%, rgba(77,5,5,1) 100%);
+	background: -webkit-gradient(left top, right top, color-stop(0%, rgba(77,5,5,1)), color-stop(46%, rgba(224,204,209,1)), color-stop(57%, rgba(224,204,209,1)), color-stop(100%, rgba(77,5,5,1)));
+	background: -webkit-linear-gradient(left, rgba(77,5,5,1) 0%, rgba(224,204,209,1) 46%, rgba(224,204,209,1) 57%, rgba(77,5,5,1) 100%);
+	background: -o-linear-gradient(left, rgba(77,5,5,1) 0%, rgba(224,204,209,1) 46%, rgba(224,204,209,1) 57%, rgba(77,5,5,1) 100%);
+	background: -ms-linear-gradient(left, rgba(77,5,5,1) 0%, rgba(224,204,209,1) 46%, rgba(224,204,209,1) 57%, rgba(77,5,5,1) 100%);
+	background: linear-gradient(to right, rgba(77,5,5,1) 0%, rgba(224,204,209,1) 46%, rgba(224,204,209,1) 57%, rgba(77,5,5,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4d0505', endColorstr='#4d0505', GradientType=1 );
+}
+
+#graphs-body {
+	background-color: rgb(239, 237, 237);
+}
+
+.center {
+	text-align: center;
+}
+
+
+.arrow-info {
+	margin-top: 40px;
+}
+
+.arrow, .arrow-info {
+	margin-right: 30px;
+}
+
+.arrow2, .arrow-info {
+	margin-left: 30px;
+}
+
+
+/*Main page*/
+.main-heading {
+	font-size: 5em;
+	margin-top: 200px;
+	font-family: 'Lobster Two', cursive;
+}
+
+.main-subheading {
+	font-size: 2em;
+	margin-top: -30px;
+	font-family: 'Roboto Condensed', sans-serif;
+}
+
+button {
+	background-color: rgb(229, 218, 220, 0.4);
+    border-radius: 20px;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    font-size: 2.5em;
+    padding: 5px 26px;
+    border: 2px solid black;
+}
+
+.main-button {
+	margin: 60px;
+}
+
+
+/*Info page 1*/
+.info1 {
+	font-family: 'Roboto Condensed', sans-serif;
+	margin-top: 200px;
+	margin-right: 220px;
+	margin-left: 220px;
+	font-size: 2.2em;
+}
+
+.bar-chart {
+    background-color: rgb(186, 163, 163);
+    fill: grey;
+}
+
+#population-text {
+	margin-top: 40px;
+}
+
+.graphs-title {
+	font-size: 3em;
+	font-family: 'Roboto Condensed', sans-serif;
+}
+
+p {
+	font-size: 1.3em;
+	font-family: 'Roboto Condensed', sans-serif;
+}
+
+.disclaimer {
+	font-family: 'Roboto Condensed', sans-serif;
+	margin-top: -20px;
+}
+
+#migration-text, #births-text {
+	margin-top: 40px;
+}
+
+.final-button {
+	margin: 30px;
+}
+
+/*.bar-chart2 {
+    background-color: rgb(186, 163, 163);
+    fill: blue;
+}
+*/
+
+
+
+
+
+
+
