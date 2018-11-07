@@ -1,43 +1,4 @@
 
-
-// function setup() {
-
-//   //var data = populationStats;
-//   var width = 2100, // canvas width and height
-//       height = 3350,
-//       margin = 20,
-//       w = width - 2 * margin, // chart area width and height
-//       h = height - 2 * margin;
-  
-//   var barWidth =  (h / populationStats.length) * 0.8; // width of bar
-//   var barMargin = (h / populationStats.length) * 0.2; // margin between two bars
-  
-//   createCanvas(width, height);
-  
-//   textSize(14);
-  
-//   push();
-//   translate(margin, margin); // ignore margin area
-  
-//   for(var i = 0; i < populationStats.length; i++) {
-//     push();
-//     fill(178, 128, 135);
-//     noStroke();
-//     translate(0, i * (barWidth + barMargin)); // jump to the top right corner of the bar
-//     rect(0, 0, map(populationStats[i].Population, 1596131, 2668140, 100, 500), barWidth); // draw rect
-//     console.log(populationStats[i].Population);
-//     //console.log(barWidth);
-
-//     fill(255,255,255);
-//     text(populationStats[i].Year, 5, barWidth/2 + 5); // write data
-
-//     pop();
-//   }
-  
-//   pop();
-// }
-
-
 var listOfPopulations = [];
 var listOfYears = [];
 var maxPopulation = 0;
@@ -49,9 +10,12 @@ for (var i = 0; i < populationStats.length; i++) {
 	listOfYears[i] = populationStats[i].Year;
 	//console.log(listOfYears[i]);
 
+
+	//Checks for the maximum number of population
 	if (populationStats[i].Population > maxPopulation){
 		maxPopulation = populationStats[i].Population;
 	}
+	//Checks for the minimum number of population
 	if (populationStats[i].Population < minPopulation){
 		minPopulation = populationStats[i].Population;
 	}
@@ -63,13 +27,13 @@ var svgHeight = 400;
 var dataset = listOfPopulations;
 
 
-
-
+//Scales the bars in the graph
 var yScale = d3.scaleLinear()
-		.domain([minPopulation,maxPopulation])
-		.range([40,390]);
+	.domain([minPopulation,maxPopulation])
+	.range([40,390]);
 
 
+//Creates a svg that will contain the chart
 var svg = d3.select('svg')
     .attr("width", svgWidth)
     .attr("height", svgHeight)
@@ -79,6 +43,7 @@ var svg = d3.select('svg')
 var barPadding = 5;
 var barWidth = (svgWidth / dataset.length);
 
+//Creates the rectangles within the chart
 var barChart = svg.selectAll("rect")
     .data(dataset)
     .enter()
@@ -91,18 +56,20 @@ var barChart = svg.selectAll("rect")
     })
     .attr("width", barWidth - barPadding)
     .attr("transform", function (d, i) {
-         var translate = [barWidth * i, 0];
-         return "translate("+ translate +")";
+        var translate = [barWidth * i, 0];
+        return "translate("+ translate +")";
     })
+    //When hovering over with the mouse over each bar
 	.on('mouseover', function(d, i){
 		console.log(d);
-
-		// var htmlString = "<p>The population size is " + d+ "</p>";
+		//This text is appended to a div and displayed on the website along with the respective year of that bar
 		var htmlString = "<p>The population size in "+datasetYears[i] + " is " + d+ "</p>";
 		$('#population-text').html(htmlString);
+		//The bar changes color
 		d3.select(this).attr("r", 10).style("fill", "rgb(77,5,5)");
 
 	})
+	//When not hovering anymore the color goes back to grey
 	.on('mouseout', function(d) {
 		d3.select(this).attr("r", 5.5).style("fill", "grey");
 	});
@@ -120,25 +87,18 @@ svg.selectAll("text")
 		return d;
 	})
 	.attr("text-anchor", "middle")
-	// .attr("x", function(d, i) {
-	// 	curX = i * (svgWidth / datasetYears.length) + (svgWidth / datasetYears.length - barPadding) / 2;
-	// 	return  curX;
-	// })
-	// .attr("y", function(d) {
-	// 	curY = svgHeight - datasetYears.length + 70;
-	// 	// curY = svgHeight + dataset.length;
-	// 	return curY;
-	// })
     .attr("transform", function(d, i) {
-       // return "rotate(-65)";
-       var curX = i * (svgWidth / datasetYears.length) + (svgWidth / datasetYears.length - barPadding) / 2 + 4.5;
-       var curY = svgHeight - datasetYears.length + 60;
-       return "translate(" + curX + "," + curY +") rotate(-90)";       
+    	//Setting the current x and y position of the text
+    	var curX = i * (svgWidth / datasetYears.length) + (svgWidth / datasetYears.length - barPadding) / 2 + 4.5;
+    	var curY = svgHeight - datasetYears.length + 60;
+    	//Rotating these positions by 90 degrees to have the text appear vertically
+    	return "translate(" + curX + "," + curY +") rotate(-90)";       
     })
 	.attr("font-family", "sans-serif")
 	.attr("font-size", "12px")
 	.attr("font-weight", "bold")
 	.attr("fill", "black");
+
 
 
 
