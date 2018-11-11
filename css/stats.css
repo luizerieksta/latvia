@@ -51,13 +51,13 @@ button {
     -webkit-transition-duration: 0.4s;
     transition-duration: 0.4s;
     cursor: pointer;
-    font-size: 2.5em;
     padding: 5px 26px;
     border: 2px solid black;
 }
 
 .main-button {
 	margin: 60px;
+	font-size: 2.5em;
 }
 
 
@@ -105,12 +105,42 @@ p {
 }
 
 
+
 /*Last info page*/
 .final-button {
 	margin: 30px;
+	font-size: 2.5em;
 }
 
 
+
+/*Button to the about page*/
+.about-page {
+	margin-top: -180px;
+	font-size: 1.5em;
+	float: right;
+}
+
+/*Heading in the about page*/
+.about-heading {
+	font-size: 5em;
+	margin-top: 80px;
+	font-family: 'Lobster Two', cursive;
+}
+
+/*Button back to main page from about page*/
+.main-page {
+	margin-top: -60px;
+	font-size: 1.5em;
+	float: right;
+}
+
+.about-page-links {
+	font-size: 1.1em;
+	color: black;
+	text-decoration: underline;
+
+}
 
 
 
